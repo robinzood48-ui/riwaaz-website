@@ -11,6 +11,7 @@ import { SearchModal } from './components/SearchModal.tsx';
 import { QuickViewModal } from './components/QuickViewModal.tsx';
 import { TrackOrderModal } from './components/TrackOrderModal.tsx';
 import { AdminLoginModal } from './components/AdminLoginModal.tsx';
+import { GitHubPushModal } from './components/GitHubPushModal.tsx';
 
 import { HomeView } from './views/HomeView.tsx';
 import { ShopView } from './views/ShopView.tsx';
@@ -36,6 +37,7 @@ function MainApp() {
   const [trackOrderOpen, setTrackOrderOpen] = useState(false);
   const [trackOrderInitialNumber, setTrackOrderInitialNumber] = useState<string>('');
   const [adminLoginOpen, setAdminLoginOpen] = useState(false);
+  const [githubPushModalOpen, setGithubPushModalOpen] = useState(false);
 
   const navigate = (view: string, params?: any) => {
     if (view === 'shop') {
@@ -72,6 +74,7 @@ function MainApp() {
         currentView={currentView}
         onNavigate={navigate}
         onOpenSearch={() => setSearchOpen(true)}
+        onOpenGitHubPush={() => setGithubPushModalOpen(true)}
       />
 
       {/* Main Content Router */}
@@ -181,6 +184,13 @@ function MainApp() {
         isOpen={adminLoginOpen}
         onClose={() => setAdminLoginOpen(false)}
         onSuccess={() => navigate('admin')}
+      />
+
+      {/* Secure GitHub Push Modal */}
+      <GitHubPushModal
+        isOpen={githubPushModalOpen}
+        onClose={() => setGithubPushModalOpen(false)}
+        initialRepoName="riwaaz-website"
       />
     </div>
   );

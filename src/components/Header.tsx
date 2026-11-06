@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, User, Heart, ShoppingBag, Menu, X, Shield, Sparkles } from 'lucide-react';
+import { Search, User, Heart, ShoppingBag, Menu, X, Shield, Sparkles, Github } from 'lucide-react';
 import { BrandEmblem } from './BrandEmblem.tsx';
 import { useCart } from '../context/CartContext.tsx';
 import { useWishlist } from '../context/WishlistContext.tsx';
@@ -9,9 +9,10 @@ interface HeaderProps {
   currentView: string;
   onNavigate: (view: string, params?: any) => void;
   onOpenSearch: () => void;
+  onOpenGitHubPush?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onOpenSearch }) => {
+export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onOpenSearch, onOpenGitHubPush }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
 
@@ -95,6 +96,19 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onOpenS
               <span className="hidden xl:inline text-xs tracking-wider text-[#785A44] uppercase font-medium">Search</span>
             </button>
 
+            {/* GitHub Push Trigger */}
+            <button
+              onClick={onOpenGitHubPush}
+              className="p-1.5 text-[#4A3B31] hover:text-[#25201C] transition-colors flex items-center gap-1 focus:outline-none rounded hover:bg-[#EDE5DA]/60"
+              aria-label="Push to GitHub"
+              title="Push project to GitHub (riwaaz-website)"
+            >
+              <Github className="w-5 h-5 stroke-[1.75]" />
+              <span className="hidden lg:inline text-[11px] font-semibold text-[#785A44] uppercase tracking-wider">
+                GitHub
+              </span>
+            </button>
+
             {/* Account / Admin Trigger */}
             <div className="relative">
               <button
@@ -146,16 +160,33 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onOpenS
                             My Orders & Addresses
                           </button>
                           {isAdmin ? (
-                            <button
-                              onClick={() => {
-                                onNavigate('admin');
-                                setAccountMenuOpen(false);
-                              }}
-                              className="w-full text-left px-4 py-2 font-medium text-[#785A44] hover:bg-[#EDE5DA] transition-colors flex items-center justify-between"
-                            >
-                              <span>Admin Dashboard</span>
-                              <Shield className="w-3.5 h-3.5 text-[#BFA069]" />
-                            </button>
+                            <>
+                              <button
+                                onClick={() => {
+                                  onNavigate('admin');
+                                  setAccountMenuOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-2 font-medium text-[#785A44] hover:bg-[#EDE5DA] transition-colors flex items-center justify-between"
+                              >
+                                <span>Admin Dashboard</span>
+                                <Shield className="w-3.5 h-3.5 text-[#BFA069]" />
+                              </button>
+                              <button
+                                onClick={() => {
+                                  onOpenGitHubPush?.();
+                                  setAccountMenuOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-2 font-medium text-[#25201C] hover:bg-[#EDE5DA] transition-colors flex items-center justify-between"
+                              >
+                                <span className="flex items-center gap-2">
+                                  <Github className="w-3.5 h-3.5 text-[#BFA069]" />
+                                  <span>Push to GitHub</span>
+                                </span>
+                                <span className="text-[9px] bg-[#BFA069]/20 text-[#785A44] px-1.5 py-0.5 rounded font-mono font-semibold">
+                                  riwaaz-website
+                                </span>
+                              </button>
+                            </>
                           ) : null}
                           <button
                             onClick={() => {

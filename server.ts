@@ -19,6 +19,12 @@ import {
   getSupabaseConfig,
   testSupabaseConnection,
 } from './src/server/supabase.ts';
+import {
+  validateGitHubToken,
+  verifyOrCreateRepository,
+  pushToGitHub,
+} from './src/server/githubSync.ts';
+
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -455,6 +461,80 @@ app.get('/api/admin/metrics', (req, res) => {
   }
   res.json({ success: true, data: db.getMetrics() });
 });
+
+// 8. GitHub Integration & Repository Push
+app.post('/api/github/validate', async (req, res) => {
+  try {
+    const { token, repoName } = req.body;
+    if (!token || typeof token !== 'string') {
+      return res.status(400).json({ success: false, error: 'GitHub Personal Access Token is required.' });
+    }
+
+    const auth = await validateGitHubToken(token.trim());
+    if (!auth.valid || !auth.user) {
+      return res.status(401).json({
+        success: false,
+        error: auth.error || 'Invalid GitHub token',
+        guidance: auth.guidance,
+      });
+    }
+
+    let repoCheck = null;
+    if (repoName && typeof repoName === 'string' && repoName.trim()) {
+      repoCheck = await verifyOrCreateRepository(token.trim(), auth.user.login, repoName.trim());
+    }
+
+    res.json({
+      success: true,
+      user: auth.user,
+      scopes: auth.scopes,
+      hasRepoScope: auth.hasRepoScope,
+      guidance: auth.guidance,
+      repoCheck,
+    });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.post('/api/github/push', async (req, res) => {
+  let token = req.body.token;
+  const repoName = req.body.repoName;
+  const commitMessage = req.body.commitMessage || 'Update website: Riwaaz luxury home decor store';
+
+  if (!token || typeof token !== 'string' || !token.trim()) {
+    return res.status(400).json({ success: false, error: 'GitHub Personal Access Token is required.' });
+  }
+
+  if (!repoName || typeof repoName !== 'string' || !repoName.trim()) {
+    return res.status(400).json({ success: false, error: 'GitHub repository name is required.' });
+  }
+
+  try {
+    const result = await pushToGitHub(token.trim(), repoName.trim(), commitMessage);
+    
+    // Explicitly wipe token from memory
+    token = undefined;
+    req.body.token = undefined;
+
+    if (!result.success) {
+      return res.status(400).json(result);
+    }
+
+    res.json(result);
+  } catch (error: any) {
+    // Explicitly wipe token from memory
+    token = undefined;
+    req.body.token = undefined;
+
+    res.status(500).json({
+      success: false,
+      error: `GitHub push failed: ${error.message}`,
+      guidance: 'Verify that your token has the "repo" scope and that the repository exists.',
+    });
+  }
+});
+
 
 // Static assets for uploaded images
 app.use('/images', express.static(path.resolve(process.cwd(), 'images')));

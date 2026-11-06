@@ -21,6 +21,12 @@ import {
   RefreshCw,
   Copy,
   Server,
+  Github,
+  FolderGit2,
+  GitCommit,
+  Eye,
+  EyeOff,
+  Loader2,
 } from 'lucide-react';
 import type { Product, Order, Coupon, OrderStatus } from '../types/index.ts';
 import { useToast } from '../context/ToastContext.tsx';
@@ -38,7 +44,19 @@ export const AdminView: React.FC<AdminViewProps> = ({
 }) => {
   const { isAdmin, adminToken, adminLogout, user } = useAuth();
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [activeTab, setActiveTab] = useState<'metrics' | 'products' | 'orders' | 'coupons' | 'supabase'>('metrics');
+  const [activeTab, setActiveTab] = useState<'metrics' | 'products' | 'orders' | 'coupons' | 'supabase' | 'github'>('metrics');
+  
+  // GitHub Sync state
+  const [ghToken, setGhToken] = useState('');
+  const [ghRepoName, setGhRepoName] = useState('riwaaz-website');
+  const [ghCommitMsg, setGhCommitMsg] = useState('Update website: Riwaaz luxury home decor store');
+  const [ghShowToken, setGhShowToken] = useState(false);
+  const [ghValidating, setGhValidating] = useState(false);
+  const [ghDetectedUser, setGhDetectedUser] = useState<any>(null);
+  const [ghPushing, setGhPushing] = useState(false);
+  const [ghProgress, setGhProgress] = useState<{ step: string; percent: number }>({ step: 'Idle', percent: 0 });
+  const [ghResult, setGhResult] = useState<any>(null);
+  const [ghError, setGhError] = useState<{ error: string; guidance?: string } | null>(null);
   
   // Data state
   const [metrics, setMetrics] = useState<any>(null);
@@ -159,7 +177,84 @@ export const AdminView: React.FC<AdminViewProps> = ({
     }
   };
 
+
+  const handleValidateGitHub = async () => {
+    if (!ghToken.trim()) {
+      setGhError({ error: 'Please enter your GitHub Personal Access Token.' });
+      return;
+    }
+    setGhValidating(true);
+    setGhError(null);
+    try {
+      const res = await fetch('/api/github/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: ghToken.trim(), repoName: ghRepoName.trim() }),
+      });
+      const data = await res.json();
+      if (data.success && data.user) {
+        setGhDetectedUser(data.user);
+        showToast('GitHub Authenticated', `Connected as @${data.user.login}`, 'success');
+      } else {
+        setGhDetectedUser(null);
+        setGhError({ error: data.error || 'Failed to authenticate token', guidance: data.guidance });
+      }
+    } catch (err: any) {
+      setGhError({ error: `Connection error: ${err.message}` });
+    } finally {
+      setGhValidating(false);
+    }
+  };
+
+  const handlePushGitHub = async () => {
+    if (!ghToken.trim()) {
+      setGhError({ error: 'GitHub Personal Access Token is required.' });
+      return;
+    }
+    if (!ghRepoName.trim()) {
+      setGhError({ error: 'Repository name is required.' });
+      return;
+    }
+    setGhPushing(true);
+    setGhError(null);
+    setGhResult(null);
+    setGhProgress({ step: 'Validating token & detecting GitHub user...', percent: 20 });
+
+    try {
+      setTimeout(() => setGhProgress({ step: 'Collecting clean source files & excluding secrets...', percent: 45 }), 700);
+      setTimeout(() => setGhProgress({ step: 'Staging, committing and rebasing main branch...', percent: 70 }), 1600);
+      setTimeout(() => setGhProgress({ step: 'Pushing changes to GitHub repository...', percent: 85 }), 2500);
+
+      const res = await fetch('/api/github/push', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          token: ghToken.trim(),
+          repoName: ghRepoName.trim(),
+          commitMessage: ghCommitMsg.trim() || 'Update website',
+        }),
+      });
+      const data = await res.json();
+      setGhToken(''); // Wiped immediately from memory
+
+      if (data.success) {
+        setGhProgress({ step: 'Completed successfully!', percent: 100 });
+        setGhResult(data);
+        showToast('Push Succeeded', `Pushed to ${data.repoUrl}`, 'success');
+      } else {
+        setGhError({ error: data.error || 'Push failed', guidance: data.guidance });
+        showToast('Push Failed', data.error || 'Check permissions', 'error');
+      }
+    } catch (err: any) {
+      setGhToken('');
+      setGhError({ error: `Network error: ${err.message}` });
+    } finally {
+      setGhPushing(false);
+    }
+  };
+
   useEffect(() => {
+
     loadAllData();
   }, []);
 
@@ -401,6 +496,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
           { id: 'orders', label: `Customer Consignments (${orders.length})` },
           { id: 'coupons', label: `Promotions & Codes (${coupons.length})` },
           { id: 'supabase', label: 'Supabase DB (qlddjxornxfeudavzoff)' },
+          { id: 'github', label: 'Push to GitHub (riwaaz-website)' },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -412,10 +508,12 @@ export const AdminView: React.FC<AdminViewProps> = ({
             }`}
           >
             {tab.id === 'supabase' && <Database className="w-3.5 h-3.5 text-[#BFA069]" />}
+            {tab.id === 'github' && <Github className="w-3.5 h-3.5 text-[#BFA069]" />}
             <span>{tab.label}</span>
           </button>
         ))}
       </div>
+
 
       {/* TAB 1: METRICS */}
       {activeTab === 'metrics' && metrics && (
@@ -1023,7 +1121,306 @@ create policy "Enable read access for all clients" on public.orders for select u
         </div>
       )}
 
+      {/* TAB 6: GITHUB SYNC */}
+      {activeTab === 'github' && (
+        <div className="space-y-8">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#EDE5DA] gap-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] uppercase tracking-widest text-[#BFA069] font-semibold">
+                  Official GitHub REST API Integration
+                </span>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-semibold">
+                  Zero CLI Required
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl font-medium text-[#25201C] mt-1">
+                GitHub Repository Push & Version Control
+              </h3>
+              <p className="text-xs text-[#785A44]">
+                Directly commit and push all website files to your existing or new GitHub repository with automatic username detection and secret filtering.
+              </p>
+            </div>
+          </div>
+
+          {/* Main GitHub Control Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs">
+            {/* Form Column (2 spans) */}
+            <div className="lg:col-span-2 p-6 sm:p-8 bg-[#FAF7F2] rounded-3xl border border-[#EDE5DA] shadow-xs space-y-6">
+              <div className="flex items-center justify-between border-b border-[#EDE5DA] pb-3">
+                <div className="flex items-center gap-2">
+                  <Github className="w-5 h-5 text-[#BFA069]" />
+                  <span className="font-semibold text-sm text-[#25201C]">Repository Push Configuration</span>
+                </div>
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-[#EFE9DF] text-[#785A44] font-medium">
+                  main branch
+                </span>
+              </div>
+
+              {/* Success Result Box */}
+              {ghResult && (
+                <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-emerald-900 space-y-3 animate-fade-in">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-base">Successfully Pushed to GitHub!</h4>
+                      <p className="text-xs text-emerald-700 mt-0.5">
+                        All files and components have been synchronized to your repository.
+                      </p>
+                      {ghResult.repoUrl && (
+                        <div className="mt-3 flex items-center justify-between bg-white/90 p-3 rounded-xl border border-emerald-200">
+                          <span className="font-mono text-xs font-semibold text-emerald-900 truncate">
+                            {ghResult.repoUrl}
+                          </span>
+                          <a
+                            href={ghResult.repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-700 text-white rounded-lg text-xs font-medium hover:bg-emerald-800 transition-colors shadow-xs"
+                          >
+                            <span>Open Repository</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Box */}
+              {ghError && (
+                <div className="bg-rose-50 border border-rose-200 rounded-2xl p-5 text-rose-900 space-y-2 animate-fade-in">
+                  <div className="flex items-start gap-2.5 font-semibold text-xs">
+                    <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0" />
+                    <span>{ghError.error}</span>
+                  </div>
+                  {ghError.guidance && (
+                    <div className="mt-2 pt-2 border-t border-rose-200/80 text-[11px] text-rose-800 bg-white/60 p-3 rounded-xl whitespace-pre-line leading-relaxed">
+                      <strong>Resolution:</strong>
+                      <div className="mt-1">{ghError.guidance}</div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Input 1: Personal Access Token */}
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-[#4A3B31] flex items-center gap-1.5">
+                    <Lock className="w-3.5 h-3.5 text-[#BFA069]" /> GitHub Personal Access Token
+                  </label>
+                  <a
+                    href="https://github.com/settings/tokens"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-[#BFA069] hover:underline flex items-center gap-1 font-medium"
+                  >
+                    <span>Generate token on GitHub</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+                <div className="relative">
+                  <input
+                    type={ghShowToken ? 'text' : 'password'}
+                    value={ghToken}
+                    onChange={(e) => {
+                      setGhToken(e.target.value);
+                      setGhError(null);
+                    }}
+                    placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                    disabled={ghPushing}
+                    className="w-full bg-white border border-[#EDE5DA] rounded-xl pl-3 pr-24 py-3 text-xs font-mono text-[#25201C] focus:outline-none focus:ring-2 focus:ring-[#BFA069] focus:border-transparent transition-all shadow-inner disabled:bg-gray-100"
+                  />
+                  <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setGhShowToken(!ghShowToken)}
+                      className="p-1 text-[#785A44] hover:text-[#25201C] transition-colors"
+                      title={ghShowToken ? 'Hide token' : 'Show token'}
+                    >
+                      {ghShowToken ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleValidateGitHub}
+                      disabled={ghValidating || !ghToken.trim() || ghPushing}
+                      className="px-2.5 py-1.5 bg-[#25201C] text-[#FAF7F2] text-[10px] font-semibold rounded-lg hover:bg-[#3D2D24] transition-colors disabled:opacity-50"
+                    >
+                      {ghValidating ? <Loader2 className="w-3 h-3 animate-spin" /> : 'Detect User'}
+                    </button>
+                  </div>
+                </div>
+                <p className="text-[10px] text-[#785A44] mt-1">
+                  Ensure the token has the <strong className="text-[#25201C]">repo</strong> scope checked so it can push code.
+                </p>
+              </div>
+
+              {/* Detected User Badge */}
+              {ghDetectedUser && (
+                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3.5 flex items-center justify-between text-xs animate-fade-in">
+                  <div className="flex items-center gap-3">
+                    {ghDetectedUser.avatarUrl && (
+                      <img
+                        src={ghDetectedUser.avatarUrl}
+                        alt={ghDetectedUser.login}
+                        className="w-9 h-9 rounded-full border border-emerald-300"
+                      />
+                    )}
+                    <div>
+                      <div className="flex items-center gap-1.5 font-semibold text-emerald-950">
+                        <span>@{ghDetectedUser.login}</span>
+                        {ghDetectedUser.name && (
+                          <span className="text-[11px] font-normal text-emerald-700">({ghDetectedUser.name})</span>
+                        )}
+                      </div>
+                      <span className="text-[10px] text-emerald-600 block">
+                        ✓ Authenticated owner automatically detected via GitHub API
+                      </span>
+                    </div>
+                  </div>
+                  <a
+                    href={ghDetectedUser.htmlUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-emerald-700 hover:text-emerald-900 flex items-center gap-1 font-medium"
+                  >
+                    <span>View Profile</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              )}
+
+              {/* Input 2: Repository Name */}
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A3B31] mb-1.5 flex items-center gap-1.5">
+                  <FolderGit2 className="w-3.5 h-3.5 text-[#BFA069]" /> Target Repository Name
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-mono text-[#785A44]/70">
+                    {ghDetectedUser ? `${ghDetectedUser.login}/` : 'github.com/.../'}
+                  </span>
+                  <input
+                    type="text"
+                    value={ghRepoName}
+                    onChange={(e) => setGhRepoName(e.target.value)}
+                    placeholder="riwaaz-website"
+                    disabled={ghPushing}
+                    className="w-full bg-white border border-[#EDE5DA] rounded-xl pl-28 pr-3 py-3 text-xs font-mono text-[#25201C] focus:outline-none focus:ring-2 focus:ring-[#BFA069] focus:border-transparent transition-all shadow-inner disabled:bg-gray-100"
+                  />
+                </div>
+              </div>
+
+              {/* Input 3: Commit Message */}
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#4A3B31] mb-1.5 flex items-center gap-1.5">
+                  <GitCommit className="w-3.5 h-3.5 text-[#BFA069]" /> Commit Message
+                </label>
+                <input
+                  type="text"
+                  value={ghCommitMsg}
+                  onChange={(e) => setGhCommitMsg(e.target.value)}
+                  placeholder="Update website: Riwaaz luxury home decor store"
+                  disabled={ghPushing}
+                  className="w-full bg-white border border-[#EDE5DA] rounded-xl px-3 py-2.5 text-xs text-[#25201C] focus:outline-none focus:ring-2 focus:ring-[#BFA069] focus:border-transparent transition-all shadow-inner disabled:bg-gray-100"
+                />
+              </div>
+
+              {/* Progress Bar (when pushing) */}
+              {ghPushing && (
+                <div className="space-y-3 bg-[#FAF7F2] border border-[#EDE5DA] rounded-2xl p-5 animate-fade-in">
+                  <div className="flex items-center justify-between text-xs font-semibold text-[#25201C]">
+                    <div className="flex items-center gap-2">
+                      <Loader2 className="w-4 h-4 animate-spin text-[#BFA069]" />
+                      <span>{ghProgress.step}</span>
+                    </div>
+                    <span className="font-mono text-[#BFA069]">{ghProgress.percent}%</span>
+                  </div>
+                  <div className="w-full bg-[#EDE5DA] h-2.5 rounded-full overflow-hidden">
+                    <div
+                      className="bg-[#BFA069] h-full transition-all duration-300 rounded-full"
+                      style={{ width: `${ghProgress.percent}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Submit Button */}
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={handlePushGitHub}
+                  disabled={ghPushing || !ghToken.trim() || !ghRepoName.trim()}
+                  className="w-full py-3.5 bg-[#25201C] text-[#FAF7F2] rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-[#3D2D24] transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {ghPushing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Pushing Website to GitHub...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Github className="w-4 h-4 text-[#BFA069]" />
+                      <span>Push All Files to GitHub</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Sidebar Security & Features Info Card */}
+            <div className="space-y-6">
+              {/* Security Card */}
+              <div className="p-6 bg-[#FAF7F2] rounded-3xl border border-[#EDE5DA] shadow-xs space-y-4">
+                <div className="flex items-center gap-2 pb-3 border-b border-[#EDE5DA]">
+                  <Shield className="w-4 h-4 text-[#BFA069]" />
+                  <span className="font-semibold text-xs text-[#25201C]">Automated Security Checks</span>
+                </div>
+                <div className="space-y-2.5 text-[11px] text-[#5E4D40]">
+                  <div className="flex items-center gap-2 text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span><strong>Excluded:</strong> node_modules & build artifacts</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span><strong>Excluded:</strong> .env files, secrets & private tokens</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span><strong>Ephemeral:</strong> Tokens cleared from memory immediately</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span><strong>Auto-Detect:</strong> GitHub username detected from token</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-800">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span><strong>Sync:</strong> Preserves main branch & handles existing files</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick instructions card */}
+              <div className="p-6 bg-[#25201C] text-[#FAF7F2] rounded-3xl border border-[#3D2D24] shadow-xs space-y-3">
+                <div className="flex items-center gap-2 text-[#BFA069] text-xs font-semibold">
+                  <Github className="w-4 h-4" />
+                  <span>How to Get Your Token</span>
+                </div>
+                <ol className="list-decimal list-inside space-y-2 text-[11px] text-[#FAF7F2]/80 leading-relaxed">
+                  <li>Visit <a href="https://github.com/settings/tokens" target="_blank" rel="noopener noreferrer" className="text-[#BFA069] underline">GitHub Token Settings</a>.</li>
+                  <li>Click <strong>Generate new token (classic)</strong>.</li>
+                  <li>Check the <strong className="text-white">repo</strong> scope checkbox.</li>
+                  <li>Copy and paste the token here to push.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* PRODUCT CREATE/EDIT MODAL */}
+
       {showProductModal && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
           <div className="fixed inset-0 bg-[#25201C]/60 backdrop-blur-xs" onClick={() => setShowProductModal(false)} />
