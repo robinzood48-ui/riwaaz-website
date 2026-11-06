@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwaaz — Curated Entryway & Foyer Sanctuaries</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0E0C0A;
+      color: #F5EFEB;
+    }
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-[#BFA069] selection:text-black">
+
+  <!-- Header -->
+  <header class="border-b border-[#342E28] bg-[#161311]/90 sticky top-0 z-40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-sm bg-[#BFA069] flex items-center justify-center font-serif text-black font-bold text-lg">R</span>
+        <div>
+          <h1 class="text-lg font-serif tracking-wider uppercase text-[#EAD8B8]">RIWAAZ • ENTRYWAY SANCTUARIES</h1>
+          <p class="text-xs text-[#9B8C7E]">Curated Gallery of 17 Architectural Foyers, Portal Torans & Welcome Consoles</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs bg-[#241F1A] border border-[#4A3F33] text-[#D8B482] px-3 py-1.5 font-medium rounded">
+          17 Curated Presets Active
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+    <div class="relative rounded-2xl overflow-hidden border border-[#3E352B] bg-gradient-to-r from-[#1B1612] via-[#2A2018] to-[#1B1612] p-8 md:p-12">
+      <div class="max-w-2xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#BFA069]">First Impressions of Grace</span>
+        <h2 class="text-3xl md:text-5xl font-serif mt-2 mb-4 text-[#F7EFE6] leading-tight">
+          Where Arrival Becomes Sacred Sanctuary
+        </h2>
+        <p class="text-sm md:text-base text-[#B3A495] leading-relaxed">
+          From monumental cathedral archway mirrors and handcrafted sheesham consoles to illuminated garden walkways, fragrant rose torans, and sculptural atrium bamboo palms. Explore seventeen inspirations for timeless Indian arrivals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <section class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex flex-wrap gap-2 text-xs font-medium">
+      <button onclick="filterCards('all')" class="filter-btn active px-4 py-2 rounded border border-[#BFA069] bg-[#BFA069] text-black transition-all">All Entryways (17)</button>
+      <button onclick="filterCards('Furniture')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#B3A495] hover:text-[#FAF7F2] transition-all">Consoles & Benches (6)</button>
+      <button onclick="filterCards('Wall Décor')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#B3A495] hover:text-[#FAF7F2] transition-all">Arches & Slat Walls (4)</button>
+      <button onclick="filterCards('Lighting')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#B3A495] hover:text-[#FAF7F2] transition-all">Illuminated Paths & Pendants (2)</button>
+      <button onclick="filterCards('Accessories')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#B3A495] hover:text-[#FAF7F2] transition-all">Stairway Botanicals & Urns (5)</button>
+    </div>
+  </section>
+
+  <!-- Grid of 17 Curated Entryway Presets -->
+  <main class="max-w-7xl mx-auto px-6 py-6 pb-20">
+    <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+      <!-- 1 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Wall Décor">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE19_8c088fc8.jpg" alt="Heritage Arch & Jute Runner Foyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Wall Décor</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹68,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Heritage Arch & Jute Runner Foyer</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Arched windowpane mirror, low console shelf with neutral blossom vases and organic woven jute runner.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Solid Hardwood & Natural Fiber
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE18_73cef766.jpg" alt="Chateau Grand Console & Blossom Urns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹1,24,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Chateau Grand Console & Blossom Urns</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Reclaimed timber trestle console, oversized floral urns with blossoming cherry branches, circular mirror, and lantern chandelier.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Reclaimed Seasoned Hardwood & Iron
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE17_d0067f2f.jpg" alt="Maharaja Spiral Rotunda Foyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹1,48,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Maharaja Spiral Rotunda Foyer</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Round mahogany center pedestal table, tiered glass crystal chandelier, flowering branches, and tiger patterned ottomans.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Solid Mahogany, Crystal & Velvet
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Accessories">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE16_eabec5f7.jpg" alt="Autumn Hearth Welcome Console" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Accessories</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹54,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Autumn Hearth Welcome Console</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Rustic console table with storage baskets, autumnal foliage garlands, circular vanity mirror, candles, and amber lanterns.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Weathered Teak & Hand-Woven Reed
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE15_9cc66d73.jpg" alt="Serene Archway Bench & Console Foyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹86,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Serene Archway Bench & Console Foyer</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">White arched grid window mirror, upholstered bouclé entry bench, fluted console table with white floral vase, and brass sconces.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Molded Timber, Bouclé & Brushed Brass
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Lighting">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee14_22fd5e29.jpg" alt="Illuminated Slate Walkway & Hydrangea Alley" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Lighting</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹76,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Illuminated Slate Walkway & Hydrangea Alley</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Natural stone flagstone pathway flanked by vibrant hydrangea blooms and glowing warm garden lantern posts.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Natural Slate & Weatherproof Brass
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Wall Décor">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee13_19a6c5fc.jpg" alt="Ceremonial Rose & Jasmine Toran Portal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Wall Décor</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹42,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Ceremonial Rose & Jasmine Toran Portal</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Lush floral archway framing entrance doorways with white roses, pink blooms, and marigold garlands for welcoming prosperity.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Botanical Blooms, Brass Bells & Teak Lintel
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Wall Décor">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee11_e9329950.jpg" alt="Andalusian Carved Stone Arch & Iron Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Wall Décor</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹1,15,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Andalusian Carved Stone Arch & Iron Gate</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Intricately carved stone masonry arch with wrought iron gate, flanked by blue glazed planters and cast iron wall lanterns.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Carved Sandstone & Wrought Iron
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee10_59d45bd4.jpg" alt="Grand Arched Mirror & Bouclé Bench Foyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹92,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Grand Arched Mirror & Bouclé Bench Foyer</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Cathedral arch brass window mirror, plush upholstered bench with bolster throw, fluted round pedestal and potted greenery.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Fluted Timber, Bouclé & Gilt Brass
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Accessories">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee9_4fdb23ab.jpg" alt="Zen Modern Entryway & Bamboo Plinths" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Accessories</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹64,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Zen Modern Entryway & Bamboo Plinths</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Solid fluted dark entrance door, tiered architectural garden planters, bamboo palms, and ambient step lighting.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Dark Hardwood & Cast Stone Planters
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Accessories">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee8_ffa57b13.jpg" alt="Cascading Staircase Botanical Gallery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Accessories</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹38,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Cascading Staircase Botanical Gallery</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Curated alignment of white ceramic plant pots with trailing pothos, cacti, and climbing vines arranged on stair risers.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Glazed Wheel-Thrown Ceramic
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee7_9cc66d73.jpg" alt="Provençal Window Mirror & Linen Bench" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹82,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Provençal Window Mirror & Linen Bench</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Full-height windowpane arch mirror reflecting bright foyer light, paired with linen upholstered seating and console accent.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Kiln-Dried Hardwood & Pure Linen
+          </div>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Wall Décor">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee6_91ffa344.jpg" alt="Architectural Fluted Slat & Glow Mirror Hallway" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Wall Décor</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹98,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Architectural Fluted Slat & Glow Mirror</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Vertical oak wood slat wall, backlit pill-shaped vanity mirror, suspended modern chandelier, and woven runner rug.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Solid Natural Oak & Backlit LED Brass
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Lighting">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee4_2e709369.jpg" alt="Warm Minimalist Entryway & Radiant Pendant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Lighting</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹72,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Warm Minimalist Entryway & Radiant Pendant</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Arched mullion mirror over floating console shelf, radiator bench with pillows, woven runner, and spherical glass pendant.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Hand-Blown Glass & Antique Brass
+          </div>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Accessories">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee3_550a87bb.jpg" alt="Festive Harvest Double-Door Welcome" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Accessories</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹46,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Festive Harvest Double-Door Welcome</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Twin harvest leaf wreaths, black lanterns, heirloom pumpkins, and custom coir mat welcoming guests with warmth.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Dried Botanicals, Iron Lanterns & Natural Coir
+          </div>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Accessories">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/ee2_50ea25c8.jpg" alt="Atrium Majesty Tall Bamboo Palms" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Accessories</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹84,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Atrium Majesty Tall Bamboo Palms</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Pair of towering live bamboo palms potted in minimalist spherical white ceramic planters with warm ceiling drum fixture.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> High-Gloss Ceramic & Living Botanical
+          </div>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="card bg-[#191512] border border-[#342D25] rounded-xl overflow-hidden hover:border-[#BFA069]/70 transition-all duration-300 group flex flex-col" data-cat="Furniture">
+        <div class="aspect-[4/3] w-full overflow-hidden relative">
+          <img src="/assets/aistudio/EE1_8a8dee9f.jpg" alt="Classic Parisian Entryway Console & Marble Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] tracking-wider uppercase text-[#E5B869] font-semibold">Furniture</span>
+          <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#BFA069] text-black text-xs font-bold font-serif">₹96,000</span>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB] group-hover:text-[#E5B869] transition-colors leading-snug">Classic Parisian Entryway Console</h3>
+            <p class="text-xs text-[#9E8F80] mt-1.5 leading-relaxed">Slender brass-framed Carrara marble console table, fresh hydrangea blooms in glass urn, oval mirror, and tailored settee.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221C] text-[11px] text-[#C4B3A3]">
+            <span class="text-[#785A44]">Material:</span> Carrara Marble & Brushed Brass
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function filterCards(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-[#BFA069]', 'text-black', 'border-[#BFA069]', 'active');
+        btn.classList.add('bg-[#1A1613]', 'text-[#B3A495]', 'border-[#3E352B]');
+      });
+      event.target.classList.remove('bg-[#1A1613]', 'text-[#B3A495]', 'border-[#3E352B]');
+      event.target.classList.add('bg-[#BFA069]', 'text-black', 'border-[#BFA069]', 'active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-cat') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

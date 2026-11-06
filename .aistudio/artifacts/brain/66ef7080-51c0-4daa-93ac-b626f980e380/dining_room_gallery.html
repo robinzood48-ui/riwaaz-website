@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwaaz — Curated Dining Room Collection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0E0C0A;
+      color: #F5EFEB;
+    }
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-[#BFA069] selection:text-black">
+
+  <!-- Header -->
+  <header class="border-b border-[#342E28] bg-[#161311]/90 sticky top-0 z-40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-sm bg-[#BFA069] flex items-center justify-center font-serif text-black font-bold text-lg">R</span>
+        <div>
+          <h1 class="text-lg font-serif tracking-wider uppercase text-[#EAD8B8]">RIWAAZ • DINING ROOM SELECT</h1>
+          <p class="text-xs text-[#9B8C7E]">Curated Gallery of 20 Architectural Dining Suites & Lighting</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs bg-[#241F1A] border border-[#4A3F33] text-[#D8B482] px-3 py-1.5 font-medium rounded">
+          20 Curated Assets Loaded
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+    <div class="relative rounded-2xl overflow-hidden border border-[#3E352B] bg-gradient-to-r from-[#1B1612] via-[#2A2119] to-[#1B1612] p-8 md:p-12">
+      <div class="max-w-2xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#BFA069]">Heritage & Modernity</span>
+        <h2 class="text-3xl md:text-5xl font-serif mt-2 mb-4 text-[#F7EFE6] leading-tight">
+          Where Banquets Become Heirloom Memories
+        </h2>
+        <p class="text-sm md:text-base text-[#B3A495] leading-relaxed">
+          From hand-fluted solid sheesham pedestal tables and carved French bistro cane chairs to 3-tier raindrop crystal chandeliers and Statuario Italian marble tops. Each dining composition is framed to invite lingering conversation, celebration, and architectural warmth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <section class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex flex-wrap gap-2 text-xs font-medium">
+      <button onclick="filterCards('all')" class="filter-btn active px-4 py-2 rounded border border-[#BFA069] bg-[#BFA069] text-black transition-all">All Suites (20)</button>
+      <button onclick="filterCards('Tables')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Tables & Dining Sets</button>
+      <button onclick="filterCards('Lighting')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Chandeliers & Pendants</button>
+      <button onclick="filterCards('Seating')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Artisanal Chairs & Banquettes</button>
+      <button onclick="filterCards('Decor')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Centerpieces & Décor</button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <main class="max-w-7xl mx-auto px-6 py-6 pb-24">
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <!-- Item 1: dd1 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Decor">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd1_43bca05f.jpg" alt="Vrindavan Hand-Carved Windchime" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd1
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Décor
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Vrindavan Windchime & Hanging Bells</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Hand-painted brass bells with festive marigold hanging for verandas and dining alcoves.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹4,499</span>
+            <span class="text-[11px] text-[#807264]">Brass & Silk Cord</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: dd2 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Decor">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd2_3994d807.jpg" alt="Aurelia Gilded Lotus Wall Installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd2
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Wall Accent
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Aurelia Gilded Lotus Wall Sculpture</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Overlapping ring armature with verdant green-patina petals and polished gold foliage.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹19,800</span>
+            <span class="text-[11px] text-[#807264]">Forged Iron & Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: dd4 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd4_c82df8eb.jpg" alt="Somerset Oak Dining Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd4
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Table Set
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Somerset Oak Open-Plan Dining Suite</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Farmhouse oak dining table with wicker-seated ladderback chairs and linen sofa harmony.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹74,000</span>
+            <span class="text-[11px] text-[#807264]">Natural Oak & Linen</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: dd5 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd5_e22dc47e.jpg" alt="Nordic Bay Window Dining Nook" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd5
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Dining Nook
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Koben Round Bistro Nook</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Round pedestal wood table bathed in bay window lighting with custom tailored bench cushions.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹42,500</span>
+            <span class="text-[11px] text-[#807264]">Walnut & Cushion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: dd6 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd6_ade01685.jpg" alt="Verona Marble Dining Island" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd6
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Marble Table
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Verona Fluted Island & Quartz Table</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Monolithic waterfall stone table with upholstered grey dining chairs and fluted light array.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹98,000</span>
+            <span class="text-[11px] text-[#807264]">Quartz & Steel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: dd7 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd7_4c096321.jpg" alt="Palais Royal 10-Seater Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd7
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Formal Suite
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Palais Royal 10-Seater Dining Ensemble</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">High-lacquer cream table, champagne velvet tufted armchairs with gold lion knocker backs.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,85,000</span>
+            <span class="text-[11px] text-[#807264]">Velvet & Polished Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7: dd8 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd8_fddff871.jpg" alt="Milano Round Travertine Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd8
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Pedestal Table
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Milano Hammered Pedestal Round Table</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Polished granite disc resting atop hammered brass textured column, illuminated by gold starburst pendants.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,24,000</span>
+            <span class="text-[11px] text-[#807264]">Granite & Hammered Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8: dd9 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd9_27a41308.jpg" alt="Versailles Live Edge Banquet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd9
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Live Edge
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Versailles Live-Edge Round Banquet</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Solid acacia live edge round table supported by geometric iron cage plinth and waterfall chandelier.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,48,000</span>
+            <span class="text-[11px] text-[#807264]">Acacia Wood & Iron</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9: dd10 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd10_a2054700.jpg" alt="Manor Live Edge 12-Seater" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd10
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Grand Table
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Old-Oak Live Edge 12-Seater Table</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Massive tree trunk live edge dining table paired with modern black wire-frame dining chairs.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,12,000</span>
+            <span class="text-[11px] text-[#807264]">Solid Slab Oak</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 10: dd11 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd11_5514654f.jpg" alt="Astra Brass Sputnik Chandelier" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd11
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Chandelier
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Astra Brass Sputnik Dining Chandelier</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Mid-century radiating brushed brass chandelier hanging proudly over modern oak dining chairs.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹38,500</span>
+            <span class="text-[11px] text-[#807264]">Brushed Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 11: dd12 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Seating">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd12_45d57365.jpg" alt="Cane Backing Bistro Chairs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd12
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Dining Chairs
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Provencal Woven Cane Dining Chairs</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Curved bentwood frames fitted with natural hand-woven rattan cane backrests for dinner parties.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹28,000 / pair</span>
+            <span class="text-[11px] text-[#807264]">Ash Wood & Rattan</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 12: dd13 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd13_28457488.jpg" alt="Gilded Geometric Linear Chandelier" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd13
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Chandelier
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Geometric Linear Tiered Chandelier</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Sleek gold nesting rectangles radiating gentle downward LED ambience across dinner courses.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹46,000</span>
+            <span class="text-[11px] text-[#807264]">Gold Anodized Alu</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 13: dd14 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd14_01bc93c7.jpg" alt="Mid-Century Walnut Credenza & Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd14
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Dining Suite
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Stockholm Walnut Dining Suite</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Beveled edge dining table flanked by tapered wishbone chairs and matching sideboard storage.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹68,500</span>
+            <span class="text-[11px] text-[#807264]">American Walnut</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 14: dd15 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Seating">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd15_7145c9b4.jpg" alt="Bouclé Curved Dining Armchairs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd15
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Bouclé Seating
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Ivory Bouclé Sculptural Host Chairs</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Chubby curved silhouette wrapped in warm off-white bouclé fabric with concealed swivel plate.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹32,000 / pair</span>
+            <span class="text-[11px] text-[#807264]">Bouclé & Hardwood</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 15: dd16 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd16_193be8d1.jpg" alt="Artisan Fluted Glass Pendants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd16
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Pendant Trio
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Venetian Ribbed Glass Trio Pendants</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Hand-blown fluted amber glass globes mounted on satin antique brass rods above dining surfaces.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹29,500</span>
+            <span class="text-[11px] text-[#807264]">Fluted Amber Glass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 16: dd17 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd17_ca68cf99.jpg" alt="Statuario Marble Oval Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd17
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Signature Suite
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Statuario Oval Banquet Table</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Sculptural veined Statuario marble oval dining surface on fluted cast bronze twin pedestals.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,65,000</span>
+            <span class="text-[11px] text-[#807264]">Statuario Marble & Bronze</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 17: dd18 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Decor">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd18_a34b8703.jpg" alt="Jodhpur Ceramic Tableware Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd18
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Centerpiece
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Jodhpur Stoneware Dining Runner Set</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Matte terracotta and glazed sage serving vessels, linen runner, and turned walnut candleholders.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹12,400</span>
+            <span class="text-[11px] text-[#807264]">Stoneware & Khadi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 18: dd19 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd19_6016ca52.jpg" alt="Raindrop Tiered Crystal Chandelier" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd19
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Grand Lighting
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Cascading Raindrop Crystal Chandelier</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Precision faceted optical crystal prisms arranged in triple descending tiers on brass armature.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹62,000</span>
+            <span class="text-[11px] text-[#807264]">K9 Crystal & Antique Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 19: dd20 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Tables">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd20_05430a44.jpg" alt="Monolith Reclaimed Teak Dining Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd20
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Heritage Table
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Monolith Reclaimed Burma Teak Table</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Solid thick plank reclaimed wood treated with organic oil wax, showing natural timber grain.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹88,000</span>
+            <span class="text-[11px] text-[#807264]">Reclaimed Teak</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 20: dd22 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Seating">
+        <div class="aspect-[4/5] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/dd22_2a77805e.jpg" alt="Modern Windsor Dining Chairs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            dd22
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Windsor Chairs
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Modern Spindle Windsor Dining Chairs</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Slender steam-bent ash spindles with saddle-carved seat for comfortable prolonged dining.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹24,500 / pair</span>
+            <span class="text-[11px] text-[#807264]">Solid Ash Timber</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function filterCards(category) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-[#BFA069]', 'text-black', 'border-[#BFA069]');
+        btn.classList.add('bg-[#1A1613]', 'text-[#CBB9A8]', 'border-[#3E352B]');
+      });
+
+      event.target.classList.remove('bg-[#1A1613]', 'text-[#CBB9A8]', 'border-[#3E352B]');
+      event.target.classList.add('bg-[#BFA069]', 'text-black', 'border-[#BFA069]');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwaaz — Curated Bedroom Sanctuary Collection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0E0C0A;
+      color: #F5EFEB;
+    }
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-[#BFA069] selection:text-black">
+
+  <!-- Header -->
+  <header class="border-b border-[#342E28] bg-[#161311]/90 sticky top-0 z-40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-sm bg-[#BFA069] flex items-center justify-center font-serif text-black font-bold text-lg">R</span>
+        <div>
+          <h1 class="text-lg font-serif tracking-wider uppercase text-[#EAD8B8]">RIWAAZ • BEDROOM SANCTUARIES</h1>
+          <p class="text-xs text-[#9B8C7E]">Curated Gallery of 10 Architectural Bedroom Suites & Dream Canopies</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs bg-[#241F1A] border border-[#4A3F33] text-[#D8B482] px-3 py-1.5 font-medium rounded">
+          10 Curated Presets Active
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+    <div class="relative rounded-2xl overflow-hidden border border-[#3E352B] bg-gradient-to-r from-[#1B1612] via-[#2A2018] to-[#1B1612] p-8 md:p-12">
+      <div class="max-w-2xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#BFA069]">Sanctuary of Rest</span>
+        <h2 class="text-3xl md:text-5xl font-serif mt-2 mb-4 text-[#F7EFE6] leading-tight">
+          Where Slumber Meets Poetic Architecture
+        </h2>
+        <p class="text-sm md:text-base text-[#B3A495] leading-relaxed">
+          From circular floating platform beds crowned by cascading sheer canopies and royal blue velvet suites with starlight fiber optics to hand-carved Rajasthani bridal four-posters and bohemian low-slung platforms bathed in fairy light ivy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <section class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex flex-wrap gap-2 text-xs font-medium">
+      <button onclick="filterCards('all')" class="filter-btn active px-4 py-2 rounded border border-[#BFA069] bg-[#BFA069] text-black transition-all">All Suites (10)</button>
+      <button onclick="filterCards('Furniture')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Bed Frames & Platforms</button>
+      <button onclick="filterCards('Lighting')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Canopies & Fairy Lights</button>
+      <button onclick="filterCards('Accessories')" class="filter-btn px-4 py-2 rounded border border-[#3E352B] bg-[#1A1613] text-[#CBB9A8] hover:border-[#BFA069] transition-all">Vines & Accents</button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <main class="max-w-7xl mx-auto px-6 py-6 pb-24">
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <!-- Item 1: bb18 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb18_b2d2b29f.jpg" alt="Celestial Velvet Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb18
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Penthouse Suite
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Celestial Royal Blue Velvet Penthouse</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Channel-tufted deep royal blue velvet king bed with custom fiber-optic starlight ceiling and crystal chandelier.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,85,000</span>
+            <span class="text-[11px] text-[#807264]">King Bed · Velvet</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: bb13 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb13_e1c43a33.jpg" alt="Circular Sanctuary Bed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb13
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Round Platform
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Sanctuary Circular Round Bed</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">240cm circular platform bed crowned by a ceiling-mounted ring canopy with sheer curtains and cascading greenery lights.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,68,000</span>
+            <span class="text-[11px] text-[#807264]">240cm Ø Round Bed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: bb12 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb12_5b223105.jpg" alt="Royal Bridal Four-Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb12
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Four-Poster
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Rajvansh Royal Bridal Four-Poster</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Solid seasoned Indian sheesham four-poster with turned balusters, champagne organza drapes, and fresh floral crown.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,45,000</span>
+            <span class="text-[11px] text-[#807264]">King · Sheesham Wood</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: bb11 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb11_88456fb7.jpg" alt="Champagne Glam Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb11
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Silk Glamour
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Svarna Tufted Champagne Silk Bed</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Plush champagne shimmer silk headboard paired with antiqued mirrored nightstands and crystal candlelight pedestals.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,38,000</span>
+            <span class="text-[11px] text-[#807264]">King · Silk & Mirror</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: bb14 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb14_65fe7de2.jpg" alt="Blush Garland Alcove" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb14
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Floral Alcove
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Kishori Dreamy Blush Garland Alcove</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Lush overhead rose garland pelmet with cascading star-shaped fairy lights and tufted dusty rose wingback bed.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹98,000</span>
+            <span class="text-[11px] text-[#807264]">Queen · Velvet & Lights</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: bb19 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb19_c92cc82f.jpg" alt="Lavender Dream Pavilion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb19
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Wrought Iron
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Amethyst Wrought-Iron Canopy Bed</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Slender white metal canopy frame draped in breezy lavender chiffon with delicate perimeter warm string lights.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹1,12,000</span>
+            <span class="text-[11px] text-[#807264]">Queen · White Steel & Chiffon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7: bb20 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb20_6c9934da.jpg" alt="Cozy Canopy String Lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb20
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Canopy Tent
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Nirvana Cascading Fairy Light Canopy</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Suspended sheer netting dome tent with hundreds of cascading warm LED string lights spilling across linen bedding.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹72,000</span>
+            <span class="text-[11px] text-[#807264]">Universal Netting · 300 LEDs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8: bb17 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Furniture">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb17_da4ec64a.jpg" alt="Boho Floor Bed Sanctuary" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb17
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Low Platform
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Prakriti Boho Low Platform Floor Bed</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Minimalist 22cm solid mountain pine platform bordered by fairy-lit wall ivy garlands and earthy linen layers.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹64,000</span>
+            <span class="text-[11px] text-[#807264]">Queen · Solid Pine Timber</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9: bb16 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Accessories">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb16_bb849bdb.jpg" alt="Twilight Window Nook" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb16
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Garland Set
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Sandhya Twilight Ivy Garland Luminaire</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Botanical trailing ivy vines embedded with warm micro-LED seed lights cascading from ceiling to windowpane.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹58,000</span>
+            <span class="text-[11px] text-[#807264]">LED Ivy Set · Peach Duvet</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 10: bb15 -->
+      <div class="card rounded-xl overflow-hidden border border-[#382F26] bg-[#171310] flex flex-col group hover:border-[#BFA069] transition-all" data-category="Lighting">
+        <div class="aspect-[4/3] overflow-hidden bg-[#221B16] relative">
+          <img src="/assets/aistudio/bb15_8c48c9a3.jpg" alt="Organza Alcove Cocoon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-black/70 backdrop-blur-md text-[#EAD8B8] border border-[#524436] rounded">
+            bb15
+          </span>
+          <span class="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-2 py-1 bg-[#4A3A2C]/80 backdrop-blur-md text-[#EAD8B8] border border-[#6B5542] rounded">
+            Curtain Light
+          </span>
+        </div>
+        <div class="p-4 flex flex-col flex-1 justify-between">
+          <div>
+            <h3 class="font-serif text-lg text-[#F5EFEB]">Vayu Gossamer Alcove Cocoon Bed</h3>
+            <p class="text-xs text-[#9B8C7E] mt-1 line-clamp-2">Recessed bed alcove draped in sweeping sheer organza panels diffusing vertical 2700K waterfall curtain lights.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#29221B] flex items-center justify-between text-xs">
+            <span class="font-semibold text-[#BFA069]">₹86,000</span>
+            <span class="text-[11px] text-[#807264]">Queen · Organza & 2700K LED</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function filterCards(category) {
+      const cards = document.querySelectorAll('.card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-[#BFA069]', 'text-black', 'border-[#BFA069]');
+        btn.classList.add('bg-[#1A1613]', 'text-[#CBB9A8]', 'border-[#3E352B]');
+      });
+
+      event.target.classList.remove('bg-[#1A1613]', 'text-[#CBB9A8]', 'border-[#3E352B]');
+      event.target.classList.add('bg-[#BFA069]', 'text-black', 'border-[#BFA069]');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
